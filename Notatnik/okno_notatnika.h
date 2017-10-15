@@ -377,7 +377,10 @@ private: System::Void okno_notatnika_Load(System::Object^  sender, System::Event
 
 }
 private: System::Void oProgramieToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
-	
+	//moj komentarz widoczny w githubie
+	//nastepny komentarz
+
+
 	//about ^form = gcnew about;
 	//about::ShowDialog();
 	//this->Hide();

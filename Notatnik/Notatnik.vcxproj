@@ -147,6 +147,9 @@
     <ClInclude Include="resource1.h" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="about.resx">
+      <DependentUpon>about.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="okno_notatnika.resx">
       <DependentUpon>okno_notatnika.h</DependentUpon>
     </EmbeddedResource>

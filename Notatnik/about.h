@@ -82,6 +82,7 @@ namespace Notatnik {
 			this->labelProductName->Size = System::Drawing::Size(35, 13);
 			this->labelProductName->TabIndex = 1;
 			this->labelProductName->Text = L"label1";
+			this->labelProductName->Click += gcnew System::EventHandler(this, &about::labelProductName_Click);
 			// 
 			// labelProductVersion
 			// 
@@ -129,5 +130,7 @@ namespace Notatnik {
 	}
 	
 
+private: System::Void labelProductName_Click(System::Object^  sender, System::EventArgs^  e) {
+}
 };
 }
