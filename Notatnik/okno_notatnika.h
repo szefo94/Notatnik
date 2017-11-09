@@ -50,17 +50,24 @@ namespace Notatnik {
 	private: System::Windows::Forms::ToolStripMenuItem^  wytnijCTRLXToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  kopiujCTRLCToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  wklToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  formatToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  zawijanieWierszyToolStripMenuItem;
+	public: System::Windows::Forms::ToolStripMenuItem^  formatToolStripMenuItem;
+	private:
+
+	public: System::Windows::Forms::ToolStripMenuItem^  zawijanieWierszyToolStripMenuItem;
+	private:
+
 	private: System::Windows::Forms::ToolStripMenuItem^  czcionkaToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  pomocToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  informacjeToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  oProgramieToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  stronaInternetowaToolStripMenuItem;
-	private: System::Windows::Forms::RichTextBox^  pole_tekstowe;
+	public: System::Windows::Forms::RichTextBox^  pole_tekstowe;
+	private:
+
 	private: System::Windows::Forms::ToolStripMenuItem^  cofnijToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  powtorzToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripSeparator^  toolStripMenuItem4;
+	private: System::Windows::Forms::FontDialog^  fontDialog1;
 
 	protected:
 
@@ -101,6 +108,7 @@ namespace Notatnik {
 			this->oProgramieToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->stronaInternetowaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->pole_tekstowe = (gcnew System::Windows::Forms::RichTextBox());
+			this->fontDialog1 = (gcnew System::Windows::Forms::FontDialog());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -243,12 +251,16 @@ namespace Notatnik {
 			this->formatToolStripMenuItem->Name = L"formatToolStripMenuItem";
 			this->formatToolStripMenuItem->Size = System::Drawing::Size(57, 20);
 			this->formatToolStripMenuItem->Text = L"&Format";
+			this->formatToolStripMenuItem->Click += gcnew System::EventHandler(this, &okno_notatnika::formatToolStripMenuItem_Click);
 			// 
 			// zawijanieWierszyToolStripMenuItem
 			// 
+			this->zawijanieWierszyToolStripMenuItem->Checked = true;
+			this->zawijanieWierszyToolStripMenuItem->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->zawijanieWierszyToolStripMenuItem->Name = L"zawijanieWierszyToolStripMenuItem";
 			this->zawijanieWierszyToolStripMenuItem->Size = System::Drawing::Size(165, 22);
 			this->zawijanieWierszyToolStripMenuItem->Text = L"Z&awijanie wierszy";
+			this->zawijanieWierszyToolStripMenuItem->Click += gcnew System::EventHandler(this, &okno_notatnika::zawijanieWierszyToolStripMenuItem_Click);
 			this->zawijanieWierszyToolStripMenuItem->EnabledChanged += gcnew System::EventHandler(this, &okno_notatnika::zawijanieWierszyToolStripMenuItem_EnabledChanged);
 			// 
 			// czcionkaToolStripMenuItem
@@ -256,6 +268,7 @@ namespace Notatnik {
 			this->czcionkaToolStripMenuItem->Name = L"czcionkaToolStripMenuItem";
 			this->czcionkaToolStripMenuItem->Size = System::Drawing::Size(165, 22);
 			this->czcionkaToolStripMenuItem->Text = L"&Czcionka";
+			this->czcionkaToolStripMenuItem->Click += gcnew System::EventHandler(this, &okno_notatnika::czcionkaToolStripMenuItem_Click);
 			// 
 			// pomocToolStripMenuItem
 			// 
@@ -301,6 +314,11 @@ namespace Notatnik {
 			this->pole_tekstowe->Text = L"";
 			this->pole_tekstowe->FontChanged += gcnew System::EventHandler(this, &okno_notatnika::pole_tekstowe_FontChanged);
 			this->pole_tekstowe->MarginChanged += gcnew System::EventHandler(this, &okno_notatnika::pole_tekstowe_MarginChanged);
+			this->pole_tekstowe->TextChanged += gcnew System::EventHandler(this, &okno_notatnika::pole_tekstowe_TextChanged);
+			// 
+			// fontDialog1
+			// 
+			this->fontDialog1->Apply += gcnew System::EventHandler(this, &okno_notatnika::fontDialog1_Apply);
 			// 
 			// okno_notatnika
 			// 
@@ -444,9 +462,35 @@ private: System::Void zakonczToolStripMenuItem_Click(System::Object^  sender, Sy
 private: System::Void pole_tekstowe_MarginChanged(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void zawijanieWierszyToolStripMenuItem_EnabledChanged(System::Object^  sender, System::EventArgs^  e) {
+	
 }
 private: System::Void pole_tekstowe_FontChanged(System::Object^  sender, System::EventArgs^  e) {
 }
+private: System::Void pole_tekstowe_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void zawijanieWierszyToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+
+	if (zawijanieWierszyToolStripMenuItem->Checked == true) {
+		zawijanieWierszyToolStripMenuItem->Checked == false;
+		pole_tekstowe->WordWrap = false;
+	}
+	else {
+		zawijanieWierszyToolStripMenuItem->Checked == true;
+		pole_tekstowe->WordWrap = true;
+
+	}
+
+}
+private: System::Void formatToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void fontDialog1_Apply(System::Object^  sender, System::EventArgs^  e) {
+}
+	private: System::Void czcionkaToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+		fontDialog1->ShowDialog();
+		pole_tekstowe->Font = gcnew System::Drawing::Font(fontDialog1->Font->Name, fontDialog1->Font->Size, fontDialog1->Font->Style);
+
+
+	}
 };
 }
 
