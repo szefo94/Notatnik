@@ -40,12 +40,6 @@ namespace Notatnik {
 	private: System::Windows::Forms::Label^  labelCopyright;
 	private: System::Windows::Forms::PictureBox^  pictureBox1;
 
-
-
-	protected:
-
-	protected:
-
 	private:
 		/// <summary>
 		/// Wymagana zmienna projektanta.

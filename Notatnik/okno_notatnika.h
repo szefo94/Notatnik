@@ -1,7 +1,6 @@
 #pragma once
 #include "about.h"
 
-//#include <string>
 namespace Notatnik {
 
 	using namespace System;
@@ -10,7 +9,6 @@ namespace Notatnik {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-	//string nameoffile;
 	/// <summary>
 	/// Podsumowanie informacji o okno_notatnika
 	/// </summary>
@@ -51,25 +49,17 @@ namespace Notatnik {
 	private: System::Windows::Forms::ToolStripMenuItem^  kopiujCTRLCToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  wklToolStripMenuItem;
 	public: System::Windows::Forms::ToolStripMenuItem^  formatToolStripMenuItem;
-	private:
-
 	public: System::Windows::Forms::ToolStripMenuItem^  zawijanieWierszyToolStripMenuItem;
-	private:
-
 	private: System::Windows::Forms::ToolStripMenuItem^  czcionkaToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  pomocToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  informacjeToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  oProgramieToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  stronaInternetowaToolStripMenuItem;
 	public: System::Windows::Forms::RichTextBox^  pole_tekstowe;
-	private:
-
 	private: System::Windows::Forms::ToolStripMenuItem^  cofnijToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  powtorzToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripSeparator^  toolStripMenuItem4;
 	private: System::Windows::Forms::FontDialog^  fontDialog1;
-
-	protected:
 
 	private:
 		/// <summary>
@@ -427,7 +417,7 @@ private: System::Void cofnijToolStripMenuItem_Click(System::Object^  sender, Sys
 	pole_tekstowe->Undo();
 }
 private: System::Void powtorzToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
-		pole_tekstowe->Redo();
+	pole_tekstowe->Redo();
 }
 private: System::Void wytnijCTRLXToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 	pole_tekstowe->Cut();
@@ -472,11 +462,11 @@ private: System::Void pole_tekstowe_TextChanged(System::Object^  sender, System:
 private: System::Void zawijanieWierszyToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 
 	if (zawijanieWierszyToolStripMenuItem->Checked == true) {
-		zawijanieWierszyToolStripMenuItem->Checked == false;
+		zawijanieWierszyToolStripMenuItem->Checked = false;
 		pole_tekstowe->WordWrap = false;
 	}
 	else {
-		zawijanieWierszyToolStripMenuItem->Checked == true;
+		zawijanieWierszyToolStripMenuItem->Checked = true;
 		pole_tekstowe->WordWrap = true;
 
 	}
