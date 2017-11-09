@@ -284,7 +284,7 @@ namespace Notatnik {
 					this->stronaInternetowaToolStripMenuItem
 			});
 			this->informacjeToolStripMenuItem->Name = L"informacjeToolStripMenuItem";
-			this->informacjeToolStripMenuItem->Size = System::Drawing::Size(131, 22);
+			this->informacjeToolStripMenuItem->Size = System::Drawing::Size(152, 22);
 			this->informacjeToolStripMenuItem->Text = L"I&nformacje";
 			// 
 			// oProgramieToolStripMenuItem
@@ -299,6 +299,7 @@ namespace Notatnik {
 			this->stronaInternetowaToolStripMenuItem->Name = L"stronaInternetowaToolStripMenuItem";
 			this->stronaInternetowaToolStripMenuItem->Size = System::Drawing::Size(174, 22);
 			this->stronaInternetowaToolStripMenuItem->Text = L"Strona int&ernetowa";
+			this->stronaInternetowaToolStripMenuItem->Click += gcnew System::EventHandler(this, &okno_notatnika::stronaInternetowaToolStripMenuItem_Click);
 			// 
 			// pole_tekstowe
 			// 
@@ -397,7 +398,7 @@ private: System::Void okno_notatnika_Load(System::Object^  sender, System::Event
 private: System::Void oProgramieToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 
 	Form^ abt = gcnew about;
-	abt->Show();
+	abt->ShowDialog();
 
 	//about ^form = gcnew about;
 	//about::ShowDialog();
@@ -491,6 +492,10 @@ private: System::Void fontDialog1_Apply(System::Object^  sender, System::EventAr
 
 
 	}
+private: System::Void stronaInternetowaToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+	System::Diagnostics::Process::Start("https://github.com/szefo94");
+
+}
 };
 }
 

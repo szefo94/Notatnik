@@ -127,6 +127,8 @@ namespace Notatnik {
 			this->Controls->Add(this->labelProductName);
 			this->Controls->Add(this->aboutButton);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
+			this->MaximizeBox = false;
+			this->MinimizeBox = false;
 			this->Name = L"about";
 			this->Text = L"about";
 			this->Load += gcnew System::EventHandler(this, &about::about_Load);
